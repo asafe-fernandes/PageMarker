@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,14 +34,21 @@ public class MangaController {
 
   @PostMapping
   public ResponseEntity<Manga> insert(@RequestBody MangaDTO mangaDTO) {
-
-    Manga newManga = new Manga(mangaDTO);
+    Manga newManga = this.mangaService.insert(mangaDTO);
     return ResponseEntity.ok().body(newManga);
   }
 
-  @DeleteMapping
-  public ResponseEntity<Manga> delete(@RequestBody MangaDTO mangaDTO) {
-    Manga deletedManga = this.mangaService.delete(mangaDTO);
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Manga> delete(@PathVariable("id") String id) {
+    System.out.println(id);
+    Manga deletedManga = this.mangaService.delete(id);
     return ResponseEntity.ok().body(deletedManga);
+  }
+
+  @PutMapping("/{id}")
+  public ResponseEntity<Manga> update(@PathVariable("id") String id, @RequestBody MangaDTO mangaDTO) {
+    Manga updatedManga = this.mangaService.update(id, mangaDTO);
+    return ResponseEntity.ok().body(updatedManga);
+
   }
 }
