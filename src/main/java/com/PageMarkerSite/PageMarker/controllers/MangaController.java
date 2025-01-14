@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,7 +29,6 @@ public class MangaController {
   // }
 
   @GetMapping
-  @CrossOrigin
   public ResponseEntity<List<Manga>> getAll() {
     List<Manga> mangas = this.mangaService.getAll();
     return ResponseEntity.ok().body(mangas);
@@ -44,7 +42,6 @@ public class MangaController {
 
   @DeleteMapping("/{id}")
   public ResponseEntity<Manga> delete(@PathVariable("id") String id) {
-    System.out.println(id);
     Manga deletedManga = this.mangaService.delete(id);
     return ResponseEntity.ok().body(deletedManga);
   }
