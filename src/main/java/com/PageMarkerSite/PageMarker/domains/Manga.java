@@ -17,16 +17,19 @@ public class Manga {
   String title;
   String chapter;
   String link;
+  String img;
 
   public Manga(MangaDTO mangaDTO) {
     this.title = mangaDTO.title();
     this.chapter = mangaDTO.chapter();
     this.link = mangaDTO.link();
+    this.img = mangaDTO.img();
   }
 
   @Override
   public String toString() {
-    return "Manga{id=" + id + ", title='" + title + "', chapter='" + chapter + "', link='" + link + "'}";
+    return "Manga{id=" + id + ", title='" + title + "', chapter='" + chapter + "', link='" + link + "', img='" + img
+        + "'}";
   }
 
 }

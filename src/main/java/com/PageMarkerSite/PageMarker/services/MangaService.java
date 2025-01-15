@@ -42,6 +42,8 @@ public class MangaService {
       manga.setChapter(mangaDTO.chapter());
     if (!mangaDTO.link().isEmpty())
       manga.setLink(mangaDTO.link());
+    if (!mangaDTO.img().isEmpty())
+      manga.setImg(mangaDTO.img());
 
     this.mangaRepository.save(manga);
 
