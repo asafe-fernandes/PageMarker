@@ -24,4 +24,9 @@ public class Manga {
     this.link = mangaDTO.link();
   }
 
+  @Override
+  public String toString() {
+    return "Manga{id=" + id + ", title='" + title + "', chapter='" + chapter + "', link='" + link + "'}";
+  }
+
 }
