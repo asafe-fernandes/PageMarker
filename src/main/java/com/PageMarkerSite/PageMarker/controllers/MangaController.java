@@ -54,7 +54,7 @@ public class MangaController {
     return ResponseEntity.ok().body(deletedManga);
   }
 
-  @PutMapping("/{id}")
+  @PostMapping("/{id}")
   @CrossOrigin(origins = "*", allowedHeaders = "*")
   public ResponseEntity<Manga> update(@PathVariable("id") String id, @RequestBody MangaDTO mangaDTO) {
     Manga updatedManga = this.mangaService.update(id, mangaDTO);
