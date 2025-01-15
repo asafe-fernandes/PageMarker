@@ -13,7 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
         .allowedOrigins("http://localhost:5173") // Allow your frontend's origin
         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Allow these methods
         .allowedHeaders("Content-Type", "Authorization", "Access-Control-Allow-Origin", "Access-Control-Allow-Headers")
-        .allowCredentials(true) // Optional: if you need to allow cookies/credentials
+        .allowCredentials(false) // Optional: if you need to allow cookies/credentials
         .maxAge(3600); // Cache preflight response for 1 hour
   }
 }
