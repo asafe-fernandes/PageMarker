@@ -48,7 +48,6 @@ public class MangaController {
   @DeleteMapping("/{id}")
   public ResponseEntity<Manga> delete(@PathVariable("id") String id) {
     Manga deletedManga = this.mangaService.delete(id);
-    System.out.println("mangaDTO=" + mangaDTO.toString());
     System.out.println(deletedManga.toString());
     return ResponseEntity.ok().body(deletedManga);
   }
