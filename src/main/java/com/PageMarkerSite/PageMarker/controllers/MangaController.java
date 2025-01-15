@@ -1,5 +1,6 @@
 package com.PageMarkerSite.PageMarker.controllers;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class MangaController {
   @CrossOrigin(origins = "*", allowedHeaders = "*")
   public ResponseEntity<List<Manga>> getAll() {
     List<Manga> mangas = this.mangaService.getAll();
-    System.out.println(mangas.toString());
+    mangas.forEach((manga) -> System.out.println(manga.toString()));
     return ResponseEntity.ok().body(mangas);
   }
 
