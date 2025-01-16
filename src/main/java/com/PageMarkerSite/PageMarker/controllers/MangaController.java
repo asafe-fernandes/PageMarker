@@ -40,8 +40,8 @@ public class MangaController {
   @PostMapping
   @CrossOrigin(origins = "*", allowedHeaders = "*")
   public ResponseEntity<Manga> insert(@RequestBody MangaDTO mangaDTO) {
-    Manga newManga = this.mangaService.insert(mangaDTO);
     System.out.println("mangaDTO=" + mangaDTO.toString());
+    Manga newManga = this.mangaService.insert(mangaDTO);
     System.out.println(newManga.toString());
     return ResponseEntity.ok().body(newManga);
   }
@@ -57,8 +57,8 @@ public class MangaController {
   @PutMapping("/{id}")
   @CrossOrigin(origins = "*", allowedHeaders = "*")
   public ResponseEntity<Manga> update(@PathVariable("id") String id, @RequestBody MangaDTO mangaDTO) {
-    Manga updatedManga = this.mangaService.update(id, mangaDTO);
     System.out.println("mangaDTO=" + mangaDTO.toString());
+    Manga updatedManga = this.mangaService.update(id, mangaDTO);
     System.out.println(updatedManga.toString());
     return ResponseEntity.ok().body(updatedManga);
 
